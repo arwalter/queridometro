@@ -5,7 +5,7 @@ const container = document.querySelector('.container')
 duplas.forEach(dupla => {
     container.innerHTML +=`
     <div class="row">
-        <img class="avatar" src="/resource/${dupla}.png" alt="avatar">
+        <img class="avatar" src="resource/${dupla}.png" alt="avatar">
         <div class="icons">
     
             <label>
