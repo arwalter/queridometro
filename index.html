@@ -5,36 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUERIDÔMETRO</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <form method="post" action="" name="form">
-        <input type="text" name="name" placeholder="Nome">
-        <input type="email" name="email" placeholder="E-mail">
-        <button type="submit">Enviar</button>
+    <form>
+        <div class="container">
+        </div>
     </form>
-
-    <script>
-        const scriptGoogle = 'https://script.google.com/macros/s/AKfycbwR_2mGGgIQnPlu6DzGPIFsTmU6DY8VOSty4alVEtFnSd_ruz6-OhWKHYcE9GRkgcM/exec'
-        const form = document.forms['form'];
-
-        form.addEventListener('submit', (e) => {
-            
-            e.preventDefault()
-
-            fetch(scriptGoogle, {
-                method: 'POST',
-                body: new FormData(form)
-            })
-            .then(response =>{
-                alert('Dados enviados com sucesso!',response)
-                form.reset();
-            })
-            .catch(error=>{
-                console.error('Erro no Envio dos dados!',error)
-            })
-        })
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

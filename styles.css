@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("resource/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  padding: 40px;
+  margin-top: 350px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.row .avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.icons{
+    display: flex;
+    gap: 25px;
+}
+
+/* radio */
+input[type="radio"] {
+  display: none;
+}
+
+/* Estilo para o contêiner do radio */
+.custom-radio {
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.custom-radio:focus {
+  outline: none;
+}
+
+input[type="radio"]#planta + .custom-radio {
+  background-image: url("resource/planta_flat.png"); /* URL da imagem para o estado selecionado */
+}
+
+/* Estilo para o estado selecionado */
+input[type="radio"]#planta:checked + .custom-radio {
+  background-image: url("resource/planta_selected.png"); /* URL da imagem para o estado selecionado */
+}
+
+input[type="radio"]#vomito + .custom-radio {
+    background-image: url("resource/vomito_flat.png"); /* URL da imagem para o estado selecionado */
+  }
+  
+  /* Estilo para o estado selecionado */
+  input[type="radio"]#vomito:checked + .custom-radio {
+    background-image: url("resource/vomito_selected.png"); /* URL da imagem para o estado selecionado */
+  }
+
+  input[type="radio"]#coracao_quebrado + .custom-radio {
+    background-image: url("resource/coracao_quebrado_flat.png"); /* URL da imagem para o estado selecionado */
+  }
+  
+  /* Estilo para o estado selecionado */
+  input[type="radio"]#coracao_quebrado:checked + .custom-radio {
+    background-image: url("resource/coracao_quebrado_selected.png"); /* URL da imagem para o estado selecionado */
+  }
+
+  input[type="radio"]#coracao_quebrado + .custom-radio {
+    background-image: url("resource/coracao_quebrado_flat.png"); /* URL da imagem para o estado selecionado */
+  }
+  
+  /* Estilo para o estado selecionado */
+  input[type="radio"]#coracao_quebrado:checked + .custom-radio {
+    background-image: url("resource/coracao_quebrado_selected.png"); /* URL da imagem para o estado selecionado */
+  }
+
+  input[type="radio"]#coracao + .custom-radio {
+    background-image: url("resource/coracao_flat.png"); /* URL da imagem para o estado selecionado */
+  }
+  
+  /* Estilo para o estado selecionado */
+  input[type="radio"]#coracao:checked + .custom-radio {
+    background-image: url("resource/coracao_selected.png"); /* URL da imagem para o estado selecionado */
+  }
+
+  input[type="radio"]#cobra + .custom-radio {
+    background-image: url("resource/cobra_flat.png"); /* URL da imagem para o estado selecionado */
+  }
+  
+  /* Estilo para o estado selecionado */
+  input[type="radio"]#cobra:checked + .custom-radio {
+    background-image: url("resource/cobra_selected.png"); /* URL da imagem para o estado selecionado */
+  }
