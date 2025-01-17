@@ -31,11 +31,27 @@ body {
   height: 200px;
 }
 
-.icons{
-    display: flex;
-    gap: 25px;
+.icons {
+  display: flex;
+  gap: 25px;
 }
 
+.custom-button {
+  justify-self: flex-end;
+  width: 130px; /* Largura do botão */
+  height: 130px; /* Altura do botão */
+  background-image: url("./resource/estrela_flat.png"); /* URL da imagem */
+  background-size: cover; /* Ajusta a imagem para preencher o botão */
+  background-position: center;
+  border: none; /* Remove bordas */
+  border-radius: 50%; /* Torna o botão redondo */
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
 /* radio */
 input[type="radio"] {
   display: none;
@@ -47,6 +63,7 @@ input[type="radio"] {
   width: 130px;
   height: 130px;
   background-size: cover;
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -60,50 +77,104 @@ input[type="radio"]#planta + .custom-radio {
 
 /* Estilo para o estado selecionado */
 input[type="radio"]#planta:checked + .custom-radio {
-  background-image: url("resource/planta_selected.png"); /* URL da imagem para o estado selecionado */
+  border: solid 8px #51ff00;
+  transform: scale(1.1);
 }
 
 input[type="radio"]#vomito + .custom-radio {
-    background-image: url("resource/vomito_flat.png"); /* URL da imagem para o estado selecionado */
-  }
-  
-  /* Estilo para o estado selecionado */
-  input[type="radio"]#vomito:checked + .custom-radio {
-    background-image: url("resource/vomito_selected.png"); /* URL da imagem para o estado selecionado */
-  }
+  background-image: url("resource/vomito_flat.png"); 
+}
 
-  input[type="radio"]#coracao_quebrado + .custom-radio {
-    background-image: url("resource/coracao_quebrado_flat.png"); /* URL da imagem para o estado selecionado */
-  }
-  
-  /* Estilo para o estado selecionado */
-  input[type="radio"]#coracao_quebrado:checked + .custom-radio {
-    background-image: url("resource/coracao_quebrado_selected.png"); /* URL da imagem para o estado selecionado */
-  }
+/* Estilo para o estado selecionado */
+input[type="radio"]#vomito:checked + .custom-radio {
+  border: solid 8px #51ff00;
+  transform: scale(1.1);
+}
 
-  input[type="radio"]#coracao_quebrado + .custom-radio {
-    background-image: url("resource/coracao_quebrado_flat.png"); /* URL da imagem para o estado selecionado */
-  }
-  
-  /* Estilo para o estado selecionado */
-  input[type="radio"]#coracao_quebrado:checked + .custom-radio {
-    background-image: url("resource/coracao_quebrado_selected.png"); /* URL da imagem para o estado selecionado */
-  }
+input[type="radio"]#coracao_quebrado + .custom-radio {
+  background-image: url("resource/coracao_quebrado_flat.png"); 
+}
 
-  input[type="radio"]#coracao + .custom-radio {
-    background-image: url("resource/coracao_flat.png"); /* URL da imagem para o estado selecionado */
-  }
-  
-  /* Estilo para o estado selecionado */
-  input[type="radio"]#coracao:checked + .custom-radio {
-    background-image: url("resource/coracao_selected.png"); /* URL da imagem para o estado selecionado */
-  }
+/* Estilo para o estado selecionado */
+input[type="radio"]#coracao_quebrado:checked + .custom-radio {
+  border: solid 8px #51ff00;
+  transform: scale(1.1);
+}
 
-  input[type="radio"]#cobra + .custom-radio {
-    background-image: url("resource/cobra_flat.png"); /* URL da imagem para o estado selecionado */
+input[type="radio"]#coracao_quebrado + .custom-radio {
+  background-image: url("resource/coracao_quebrado_flat.png"); 
+}
+
+/* Estilo para o estado selecionado */
+input[type="radio"]#coracao_quebrado:checked + .custom-radio {
+  border: solid 8px #51ff00;
+  transform: scale(1.1);
+}
+
+input[type="radio"]#coracao + .custom-radio {
+  background-image: url("resource/coracao_flat.png"); 
+}
+
+/* Estilo para o estado selecionado */
+input[type="radio"]#coracao:checked + .custom-radio {
+  border: solid 8px #51ff00;
+  transform: scale(1.1);
+}
+
+input[type="radio"]#cobra + .custom-radio {
+  background-image: url("resource/cobra_flat.png");
+}
+
+/* Estilo para o estado selecionado */
+input[type="radio"]#cobra:checked + .custom-radio {
+  border: solid 8px #51ff00;
+  transform: scale(1.1);
+}
+
+/* loading */
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #000000AA;
+  font-family: Arial, sans-serif;
+}
+
+/* Contêiner do spinner */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Spinner animado */
+.spinner {
+  width: 150px;
+  height: 150px;
+  border: 20px solid #51ff00; /* Cor de fundo do spinner */
+  border-top: 20px solid transparent; /* Cor principal do spinner */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animação de rotação */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  /* Estilo para o estado selecionado */
-  input[type="radio"]#cobra:checked + .custom-radio {
-    background-image: url("resource/cobra_selected.png"); /* URL da imagem para o estado selecionado */
+  100% {
+    transform: rotate(360deg);
   }
+}
+
+/* Texto de carregamento */
+.loading-text {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #555;
+}
