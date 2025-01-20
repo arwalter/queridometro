@@ -8,17 +8,26 @@ body {
   background-image: url("resource/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 40px;
+  overflow: hidden;
 }
 
 .container {
-  padding: 40px;
   margin-top: 350px;
-  width: 1080px;
-  overflow: hidden;
   display: flex;
+  gap: 80px;
+}
+
+.wrapper_1,
+.wrapper_2 {
+  display: flex;
+  width: 1000px;
   flex-direction: column;
   gap: 20px;
+  transition: ease-out .2s;
 }
+
+
 
 .row {
   display: flex;
@@ -47,6 +56,9 @@ body {
   border-radius: 50%; /* Torna o botão redondo */
   cursor: pointer;
 }
+.custom-button:disabled{
+  background-image: url("./resource/estrela_disabled.png"); /* URL da imagem */
+}
 
 .hidden {
   visibility: hidden;
@@ -67,8 +79,9 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-.custom-radio:focus {
-  outline: none;
+input[type="radio"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 input[type="radio"]#planta + .custom-radio {
@@ -82,7 +95,7 @@ input[type="radio"]#planta:checked + .custom-radio {
 }
 
 input[type="radio"]#vomito + .custom-radio {
-  background-image: url("resource/vomito_flat.png"); 
+  background-image: url("resource/vomito_flat.png");
 }
 
 /* Estilo para o estado selecionado */
@@ -92,7 +105,7 @@ input[type="radio"]#vomito:checked + .custom-radio {
 }
 
 input[type="radio"]#coracao_quebrado + .custom-radio {
-  background-image: url("resource/coracao_quebrado_flat.png"); 
+  background-image: url("resource/coracao_quebrado_flat.png");
 }
 
 /* Estilo para o estado selecionado */
@@ -102,7 +115,7 @@ input[type="radio"]#coracao_quebrado:checked + .custom-radio {
 }
 
 input[type="radio"]#coracao_quebrado + .custom-radio {
-  background-image: url("resource/coracao_quebrado_flat.png"); 
+  background-image: url("resource/coracao_quebrado_flat.png");
 }
 
 /* Estilo para o estado selecionado */
@@ -112,7 +125,7 @@ input[type="radio"]#coracao_quebrado:checked + .custom-radio {
 }
 
 input[type="radio"]#coracao + .custom-radio {
-  background-image: url("resource/coracao_flat.png"); 
+  background-image: url("resource/coracao_flat.png");
 }
 
 /* Estilo para o estado selecionado */
@@ -141,7 +154,7 @@ input[type="radio"]#cobra:checked + .custom-radio {
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: #000000AA;
+  background-color: #000000aa;
   font-family: Arial, sans-serif;
 }
 
@@ -177,4 +190,26 @@ input[type="radio"]#cobra:checked + .custom-radio {
   margin-top: 15px;
   font-size: 18px;
   color: #555;
+}
+
+.toast {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  right: 0;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.hid {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(800px);
+}
+
+.toast.vis {
+  opacity: 1;
+  transform: translateY(10px);
 }

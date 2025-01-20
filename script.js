@@ -13,13 +13,15 @@ const duplas = [
   "guilherme_joselma",
 ];
 
-const container = document.querySelector(".container");
+const wrapper_1 = document.querySelector(".wrapper_1");
+const wrapper_2 = document.querySelector(".wrapper_2");
+
 const loading = document.querySelector(".loading");
 
 duplas.forEach((dupla, idx) => {
   if (idx < 6) {
-    container.innerHTML += `
-    <div class="row">
+    wrapper_1.innerHTML += `
+    <div class="row" onchange='checkPages()'>
         <img class="avatar" src="resource/${dupla}.png" alt="avatar"/>
         <div class="icons">
     
@@ -46,19 +48,19 @@ duplas.forEach((dupla, idx) => {
         </div>
     </div>`;
     if (idx == 5) {
-      container.innerHTML += `
-        <div class="row" style='justify-content:end'>
-            <button type="button" class='custom-button' onclick='next_page()'>
-            </button>
-        </div>
+      wrapper_1.innerHTML += `
+    <div class="row" style='justify-content:end'>
+        <button id='btnNextPage' type="button" class='custom-button' onclick='next_page()' disabled>
+        </button>
+    </div>
         `;
     }
   } else {
-    container.innerHTML += `
-        <div class="row hidden">
+    wrapper_2.innerHTML += `
+    
+        <div class="row"  onchange='checkPages()'>
             <img class="avatar" src="resource/${dupla}.png" alt="avatar">
             <div class="icons">
-        
                 <label>
                     <input id="planta" type="radio" name="${dupla}" value="planta">
                     <span  class="custom-radio"></span>
@@ -82,9 +84,9 @@ duplas.forEach((dupla, idx) => {
             </div>
         </div>`;
     if (idx == 11) {
-        container.innerHTML += `
-        <div class="row hidden" style='justify-content:end'>
-            <button type="submit" class='custom-button'>
+      wrapper_2.innerHTML += `
+        <div class="row" style='justify-content:end;'>
+            <button id='btnSubmit' type="submit" class='custom-button' disabled>
             </button>
         </div>
         `;
@@ -92,33 +94,94 @@ duplas.forEach((dupla, idx) => {
   }
 });
 
-const scriptGoogle = 'https://script.google.com/macros/s/AKfycbwR_2mGGgIQnPlu6DzGPIFsTmU6DY8VOSty4alVEtFnSd_ruz6-OhWKHYcE9GRkgcM/exec'
-const form = document.forms['form'];
+const scriptGoogle =
+  "https://script.google.com/macros/s/AKfycbwR_2mGGgIQnPlu6DzGPIFsTmU6DY8VOSty4alVEtFnSd_ruz6-OhWKHYcE9GRkgcM/exec";
+const form = document.forms["form"];
 
-form.addEventListener('submit', (e) => {
-    loading = document.querySelector(".loading").classList.remove("hidden");
-    e.preventDefault()
-    fetch(scriptGoogle, {
-        method: 'POST',
-        body: new FormData(form)
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  loading.classList.remove("hidden");
+  fetch(scriptGoogle, {
+    method: "POST",
+    body: new FormData(form),
+  })
+    .then((response) => {
+      showToast();
+      prev_page();
     })
-    .then(response =>{
-        alert('Dados enviados com sucesso!',response)
-        form.reset();
-        next_page(); 
-    })
-    .catch(error=>{
-        console.error('Erro no Envio dos dados!',error)
+    .catch((error) => {
+      console.error("Erro no Envio dos dados!", error);
     })
     .finally(() => {
-        loading = document.querySelector(".loading").classList.add("hidden");
-    })  
-})
+      console.log("Dados enviados com sucesso!");
+      loading.classList.add("hidden");
+      reset();
+    });
+});
 
-function next_page(){
-    const elements = document.querySelectorAll(".row");
-    elements.forEach((element) => {
-        element.classList.toggle("hidden");
-    })   
+function next_page() {
+  const wrapper_1 = document.querySelector(".wrapper_1");
+  wrapper_1.style.marginLeft = "-1080px";
+}
 
+function prev_page() {
+  const wrapper_1 = document.querySelector(".wrapper_1");
+  wrapper_1.style.marginLeft = "0";
+}
+
+function checkPages() {
+  const group1 = [
+    "aline_vinicius",
+    "arleane_marcelo",
+    "camilla_thamiris",
+    "diego_daniele",
+    "diogo_vilma",
+    "edilberto_raissa",
+  ];
+  const group2 = [
+    "eva_renata",
+    "gabriel_maike",
+    "gracyanne_giovanna",
+    "joaogabriel_joaopedro",
+    "mateus_vitoria",
+    "guilherme_joselma",
+  ];
+
+  const allSelected = group1.every((dupla) => {
+    return document.querySelector(`.wrapper_1 input[name="${dupla}"]:checked`);
+  });
+
+  if (allSelected) {
+    document.getElementById("btnNextPage").disabled = false;
+  }
+
+  const allSelected2 = group2.every((dupla) => {
+    return document.querySelector(`.wrapper_2 input[name="${dupla}"]:checked`);
+  });
+
+  if (allSelected2) {
+    document.getElementById("btnSubmit").disabled = false;
+  }
+}
+
+function reset() {
+  document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+    radio.checked = false;
+  });
+  // Redefinir o estado dos botões
+  document.getElementById("btnNextPage").disabled = true;
+  document.getElementById("btnSubmit").disabled = true;
+  checkPages();
+}
+
+function showToast() {
+  const toast = document.getElementById("toast");
+  toast.classList.remove("hid");
+  toast.classList.add("vis");
+
+  // Oculta o toast automaticamente após 3 segundos
+  setTimeout(() => {
+    toast.classList.remove("vis");
+    toast.classList.add("hid");
+  }, 3000);
 }
