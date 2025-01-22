@@ -49,7 +49,7 @@ body {
   justify-self: flex-end;
   width: 130px; /* Largura do botão */
   height: 130px; /* Altura do botão */
-  background-image: url("./resource/estrela_flat.png"); /* URL da imagem */
+  background-image: url("resource/estrela_flat.png"); /* URL da imagem */
   background-size: cover; /* Ajusta a imagem para preencher o botão */
   background-position: center;
   border: none; /* Remove bordas */
@@ -57,7 +57,7 @@ body {
   cursor: pointer;
 }
 .custom-button:disabled{
-  background-image: url("./resource/estrela_disabled.png"); /* URL da imagem */
+  filter: grayscale(80%);
 }
 
 .hidden {
@@ -212,4 +212,9 @@ input[type="radio"]#cobra:checked + .custom-radio {
 .toast.vis {
   opacity: 1;
   transform: translateY(10px);
+}
+
+.eliminated{
+  filter: grayscale(80%);
+  pointer-events: none; 
 }

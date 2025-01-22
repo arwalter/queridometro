@@ -13,15 +13,20 @@ const duplas = [
   "guilherme_joselma",
 ];
 
+const eliminated = [
+  "arleane_marcelo",
+];
+
 const wrapper_1 = document.querySelector(".wrapper_1");
 const wrapper_2 = document.querySelector(".wrapper_2");
 
 const loading = document.querySelector(".loading");
 
 duplas.forEach((dupla, idx) => {
+  const isEliminted = eliminated.includes(dupla);
   if (idx < 6) {
     wrapper_1.innerHTML += `
-    <div class="row" onchange='checkPages()'>
+    <div class="row ${isEliminted ? 'eliminated':''}" onchange='checkPages()'>
         <img class="avatar" src="resource/${dupla}.png" alt="avatar"/>
         <div class="icons">
     
@@ -148,7 +153,7 @@ function checkPages() {
   ];
 
   const allSelected = group1.every((dupla) => {
-    return document.querySelector(`.wrapper_1 input[name="${dupla}"]:checked`);
+    return document.querySelector(`.wrapper_1 input[name="${dupla}"]:checked`) || eliminated.includes(dupla);
   });
 
   if (allSelected) {
@@ -156,7 +161,7 @@ function checkPages() {
   }
 
   const allSelected2 = group2.every((dupla) => {
-    return document.querySelector(`.wrapper_2 input[name="${dupla}"]:checked`);
+    return document.querySelector(`.wrapper_2 input[name="${dupla}"]:checked`) || eliminated.includes(dupla);
   });
 
   if (allSelected2) {
