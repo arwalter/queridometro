@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("resource/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 40px;
+  overflow: hidden;
+  width: 100%;
+  background-position: -40px 0;
+}
+
+.container {
+  margin-top: 290px;
+  height: 1640px;
+  display: flex;
+  gap: 80px;
+  overflow: hidden;
+}
+
+.wrapper{
+  display: flex;
+  width: 1000px;
+  flex-direction: column;
+  gap: 20px;
+  transition: ease-out .2s;
+  
+}
+
+.row {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none; 
+}
+.row .avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.icons {
+  display: flex;
+  gap: 25px;
+}
+
+.icon {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+#planta{
+  background-image: url("resource/planta_flat.png");
+}
+
+#vomito{
+  background-image: url("resource/vomito_flat.png");
+}
+
+#coracao_quebrado{
+  background-image: url("resource/coracao_quebrado_flat.png");
+}
+
+#coracao{
+  background-image: url("resource/coracao_flat.png");
+}
+
+#cobra{
+  background-image: url("resource/cobra_flat.png");
+}
+
+.bullet{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #000000AA;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.eliminated{
+  filter: grayscale(80%);
+  pointer-events: none; 
+}
+
+.animation{
+  animation: rolar 50s linear infinite;
+}
+
+@keyframes rolar {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translatey(-170%);
+  }
+}
