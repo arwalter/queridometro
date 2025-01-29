@@ -13,7 +13,7 @@ const duplas = [
   "guilherme_joselma",
 ];
 
-const eliminated = ["arleane_marcelo"];
+const eliminated = ["arleane_marcelo","edilberto_raissa"];
 
 const baseURL =
   "https://docs.google.com/spreadsheets/d/1C95jkSpXLyDHeoXXmnUKPVkxJY7OCcMlYBmB21pUFbk/gviz/tq?tqx=out:csv&sheet=data";
