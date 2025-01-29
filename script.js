@@ -15,6 +15,7 @@ const duplas = [
 
 const eliminated = [
   "arleane_marcelo",
+  "edilberto_raissa",
 ];
 
 const wrapper_1 = document.querySelector(".wrapper_1");
