@@ -19,15 +19,15 @@ body {
 }
 
 .wrapper_1,
-.wrapper_2 {
+.wrapper_2,
+.wrapper_3,
+.wrapper_4 {
   display: flex;
-  width: 1000px;
   flex-direction: column;
+  width: 1000px;
   gap: 20px;
   transition: ease-out .2s;
 }
-
-
 
 .row {
   display: flex;
