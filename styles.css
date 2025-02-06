@@ -47,14 +47,19 @@ body {
 
 .custom-button {
   justify-self: flex-end;
-  width: 130px; /* Largura do botão */
-  height: 130px; /* Altura do botão */
-  background-image: url("resource/estrela_flat.png"); /* URL da imagem */
+  width: 350px; /* Largura do botão */
+  height: 100px; /* Altura do botã */
+  background-image: url("resource/proximo.png"); /* URL da imagem */
   background-size: cover; /* Ajusta a imagem para preencher o botão */
-  background-position: center;
+  background-position:center;
   border: none; /* Remove bordas */
-  border-radius: 50%; /* Torna o botão redondo */
+  border-radius: 50px; 
   cursor: pointer;
+  margin-top: 50px;
+}
+
+button[type=submit]{
+  background-image: url("resource/enviar.png"); /* URL da imagem */
 }
 .custom-button:disabled{
   filter: grayscale(80%);
