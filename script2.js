@@ -22,7 +22,7 @@ const brothers = [
 ];
 
 const eliminated = [
-  "giovanna"
+  "giovanna","gabriel","mateus"
 ];
 
 const wrapper_1 = document.querySelector(".wrapper_1");
